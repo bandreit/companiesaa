@@ -5,8 +5,6 @@ const app = express();
 
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, "client/build")));
-
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "build", "index.html"));
 });
@@ -30,6 +28,8 @@ app.use(function(req, res, next) {
 });
 
 app.use("/api/companies", require("./routes/api/companies"));
+
+app.use(express.static(path.join(__dirname, "client/build")));
 
 const PORT = process.env.PORT || 5000;
 
