@@ -41,7 +41,7 @@ Client should start on port 3000
 
 ## Documentation
 
-- Example of a POST request for adding one or multiple companies
+- Example of a GET request for recieving all the companies
 
 ```
 curl -X GET http://localhost:5000/api/companies
@@ -104,7 +104,7 @@ curl -X POST http://localhost:5000/api/companies/ \
 - Example of a PUT request for adding one or multiple companies
 
 ```
-curl -X POST http://localhost:5000/api/companies/ \
+curl -X PUT http://localhost:5000/api/companies/1 \
      -H "Content-Type: application/json" \
      -d '{
 	    "address": "Str. Ismail 4420"
@@ -127,6 +127,29 @@ curl -X POST http://localhost:5000/api/companies/ \
         "beneficial_owners": []
     }
 }
+```
+
+- Example of a GET request for a specific company
+
+```
+curl -X GET http://localhost:5000/api/companies/1
+```
+
+- Response
+
+```
+[
+    {
+        "id": 1,
+        "name": "Bucuria",
+        "address": "48 Ismail Street",
+        "city": "Chisinau",
+        "country": "Moldova",
+        "email": "bucuria@mail.md",
+        "phone_number": "+37364687947",
+        "beneficial_owners": []
+    }
+]
 ```
 
 ## Deployment
