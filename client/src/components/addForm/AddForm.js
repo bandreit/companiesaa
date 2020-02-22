@@ -56,7 +56,7 @@ function index() {
               email: values.email,
               phone_number: values.phonenum
             })
-          });
+          }).then(setSubmitting(false));
           //   setSubmitting(false);
         }}
       >
