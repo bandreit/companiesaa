@@ -1,87 +1,167 @@
-# Project Title
+# Companies API
 
-One Paragraph of project description goes here
+This is a fullstack application that allows to create, read and update a list of companies that contain information about the ID, name, address, city, country, e-mail, phone number and a list of it's beneficial owners.
+
+[![Main page](https://image.prntscr.com/image/ugNRiHUtSRWvCthI4fw1yw.png)]()
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on seeing a live version of the system.
 
-### Prerequisites
+### Clone
 
-What things you need to install the software and how to install them
+Clone this repo to your local machine using `https://gitlab.com/bandrei/companiesaa.git`
 
-```
-Give examples
-```
+### Stetup
 
-### Installing
+Navigate to the repository
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
+```shell
+$ cd CompaniesAA/
 ```
 
-And repeat
+Install and update packages first and then start the server
 
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
+```shell
+$ yarn install
+$ yarn start
 ```
 
-### And coding style tests
+Server should start on port 5000
 
-Explain what these tests test and why
+Navigate to the client repository to install packages and start the client
 
 ```
-Give an example
+$ cd client/
+$ yarn install
+$ yarn start
+```
+
+Client should start on port 3000
+
+## Documentation
+
+- Example of a POST request for adding one or multiple companies
+
+```
+curl -X GET http://localhost:5000/api/companies
+```
+
+- Response:
+
+```
+[
+    {
+        "id": 1,
+        "name": "Bucuria",
+        "address": "48 Ismail Street",
+        "city": "Chisinau",
+        "country": "Moldova",
+        "email": "bucuria@mail.md",
+        "phone_number": "+37364687947",
+        "beneficial_owners": [
+            "fe"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Zara",
+        "address": "10/2 Gefognad Street",
+        "city": "Vienna",
+        "country": "Austria",
+        "email": "vienna@zara.com",
+        "phone_number": "+3234524624",
+        "beneficial_owners": []
+    },
+    {
+        "id": 3,
+        "name": "Zubr",
+        "address": "3 Mihailovski Street",
+        "city": "Reni",
+        "country": "Ukraine",
+        "email": "reni@zubr.ua",
+        "phone_number": "+6538394633",
+        "beneficial_owners": []
+    }
+]
+```
+
+- Example of a POST request for adding one or multiple companies
+
+```
+curl -X POST http://localhost:5000/api/companies/ \
+     -H "Content-Type: application/json" \
+     -d '{
+        "name": "H&M",
+        "address": "Str. Huipaimi 4",
+        "city": "Los Angeles",
+        "country": "USA",
+        "email": "hm@la.com",
+        "phone_number": "+1241362625"
+         }'
+```
+
+- Example of a PUT request for adding one or multiple companies
+
+```
+curl -X POST http://localhost:5000/api/companies/ \
+     -H "Content-Type: application/json" \
+     -d '{
+	    "address": "Str. Ismail 4420"
+        }'
+```
+
+- Response
+
+```
+{
+    "msg": "Company was updated",
+    "company": {
+        "id": 1,
+        "name": "Bucuria",
+        "address": "Str. Ismail 4420",
+        "city": "Chisinau",
+        "country": "Moldova",
+        "email": "bucuria@mail.md",
+        "phone_number": "+37364687947",
+        "beneficial_owners": []
+    }
+}
 ```
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+The system is deploid on a Heroku live server at `https://guarded-tundra-65894.herokuapp.com/`
 
 ## Built With
 
-- [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-- [Maven](https://maven.apache.org/) - Dependency Management
-- [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+- [NodeJS](http://www.dropwizard.io/1.0.2/docs/) - JavaScript runtime for backend
+- [Express](https://maven.apache.org/) - Node.js web application framework
+- [React](https://rometools.github.io/rome/) - JavaScript library used for the client
+- [MaterialUI](https://material-ui.com/) - React UI Framework
 
-## Contributing
+## Considerations
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+- [Auth0](https://auth0.com/) is authentification method/protocol that I would use in order to add authentification to the service as it is a scalable technology that provides APIs, SDKs, live analytics and easy integration with social networks or passwordless services
+- The service can become redundant at editing the data, as the editing needs to be done to the whole company and it's beneficial owners. That can be seen in the client-side too as I have different components displaying data for a single company and more of them. Although single responsability should be mentained, when designing an API the redundancy factor should alwas be kept in mind.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+Heroku automatic versioning was used when deployed.
 
 ## Authors
 
-- **Billie Thompson** - _Initial work_ - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+- **Andrei Bostan** - _Initial work_ - [bandrei](https://gitlab.com/bandrei)
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- [Traversy Media](https://www.youtube.com/user/TechGuyWeb)
+- [fvcproductions](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
+- [nbuggers](https://dev.to/nburgess/creating-a-react-app-with-react-router-and-an-express-backend-33l3)
+
+## License
+
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+
+- **[MIT license](http://opensource.org/licenses/mit-license.php)**
+- Copyright 2015 © <a href="http://fvcproductions.com" target="_blank">FVCproductions</a>.
