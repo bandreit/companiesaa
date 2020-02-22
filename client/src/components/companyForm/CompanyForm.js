@@ -86,7 +86,7 @@ const CompanyForm = ({ values = {}, onSubmit }) => {
                 type="submit"
                 disabled={isSubmitting}
               >
-                Add company
+                {values.id ? "Edit" : "Add"} Company
               </Button>
             </Box>
           </div>
@@ -96,4 +96,14 @@ const CompanyForm = ({ values = {}, onSubmit }) => {
   );
 };
 
+CompanyForm.defaultProps = {
+  values: {
+    name: "",
+    address: "",
+    city: "",
+    country: "",
+    email: "",
+    phone_number: ""
+  }
+};
 export default CompanyForm;

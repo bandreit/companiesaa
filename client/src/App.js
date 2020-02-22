@@ -1,11 +1,20 @@
 import React from "react";
-import { Companies, AddForm, EditForm, Company } from "./components";
+import {
+  Companies,
+  AddForm,
+  EditForm,
+  Company,
+  AddBeneficialOwners
+} from "./components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/:id/beneficial_owners">
+          <AddBeneficialOwners />
+        </Route>
         <Route path="/edit/:id">
           <EditForm />
         </Route>

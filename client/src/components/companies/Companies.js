@@ -3,6 +3,8 @@ import { Grid, Paper, Container } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import api from "../../api";
 import { Link } from "react-router-dom";
+import Fab from "@material-ui/core/Fab";
+import EditIcon from "@material-ui/icons/Edit";
 
 import "./Companies.css";
 
@@ -20,25 +22,30 @@ function Companies() {
   return (
     <Container maxWidth="sm" className="wrapper">
       {companies.map(company => (
-        <Link to={`/edit/${company.id}`} key={company.id}>
-          <Paper className="paper">
-            <Grid container spacing={2}>
-              <Grid item xs={6} className="company-name">
-                <Typography variant="h4">{company.name}</Typography>
-              </Grid>
-              <Grid item xs={6}>
-                <Typography>{company.address}</Typography>
-                <Typography>
-                  {company.city}, {company.country}
-                </Typography>
-                <Typography>{company.email}</Typography>
-                <Typography variant="subtitle2">
-                  {company.phone_number}
-                </Typography>
-              </Grid>
+        <Paper className="paper" key={company.id}>
+          <Grid container spacing={2}>
+            <Grid item xs={5} className="company-name">
+              <Typography variant="h4">{company.name}</Typography>
             </Grid>
-          </Paper>
-        </Link>
+            <Grid item xs={5}>
+              <Typography>{company.address}</Typography>
+              <Typography>
+                {company.city}, {company.country}
+              </Typography>
+              <Typography>{company.email}</Typography>
+              <Typography variant="subtitle2">
+                {company.phone_number}
+              </Typography>
+            </Grid>
+            <Grid item xs={2} className="button">
+              <Link to={`/edit/${company.id}`}>
+                <Fab color="secondary" aria-label="edit">
+                  <EditIcon />
+                </Fab>
+              </Link>
+            </Grid>
+          </Grid>
+        </Paper>
       ))}
     </Container>
   );
