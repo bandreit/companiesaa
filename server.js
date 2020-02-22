@@ -28,7 +28,7 @@ app.use(function(req, res, next) {
 app.use("/api/companies", require("./routes/api/companies"));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "build", "index.html"));
+  res.sendFile(path.resolve(__dirname, "client/build", "index.html"));
 });
 
 const PORT = process.env.PORT || 5000;
