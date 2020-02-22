@@ -38,7 +38,7 @@ router
   .get("/", (req, res) => res.json(companies))
   .post("/", (req, res) => {
     const newCompany = {
-      id: req.body.id,
+      id: companies.length + 1,
       name: req.body.name,
       address: req.body.address,
       city: req.body.city,
