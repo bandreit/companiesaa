@@ -5,7 +5,7 @@ const companies = [
   {
     id: 1,
     name: "Bucuria",
-    address: "Str. Ismail 48",
+    address: "48 Ismail Street",
     city: "Chisinau",
     country: "Moldova",
     email: "bucuria@mail.md",
@@ -15,7 +15,7 @@ const companies = [
   {
     id: 2,
     name: "Zara",
-    address: "Str. Gefognad 10/2",
+    address: "10/2 Gefognad Street",
     city: "Vienna",
     country: "Austria",
     email: "vienna@zara.com",
@@ -25,7 +25,7 @@ const companies = [
   {
     id: 3,
     name: "Zubr",
-    address: "Str. Mihailovski 3",
+    address: "3 Mihailovski Street",
     city: "Reni",
     country: "Ukraine",
     email: "reni@zubr.ua",

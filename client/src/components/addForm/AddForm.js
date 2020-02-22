@@ -57,8 +57,7 @@ function index() {
               phone_number: values.phonenum
             })
           });
-          setSubmitting(false);
-          resetForm({});
+          //   setSubmitting(false);
         }}
       >
         {({ values, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
