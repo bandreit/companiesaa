@@ -5,9 +5,7 @@ const app = express();
 
 app.use(express.json());
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "build", "index.html"));
-});
+app.use(express.static(path.join(__dirname, "client/build")));
 
 app.use(function(req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
@@ -29,7 +27,9 @@ app.use(function(req, res, next) {
 
 app.use("/api/companies", require("./routes/api/companies"));
 
-app.use(express.static(path.join(__dirname, "client/build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "build", "index.html"));
+});
 
 const PORT = process.env.PORT || 5000;
 
