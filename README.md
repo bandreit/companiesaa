@@ -10,7 +10,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Clone
 
-Clone this repo to your local machine using `https://gitlab.com/bandrei/companiesaa.git`
+Clone this repo to your local machine using `https://github.com/bandreit/companiesaa.git`
 
 ### Stetup
 
@@ -174,7 +174,7 @@ Heroku automatic versioning was used when deployed.
 
 ## Authors
 
-- **Andrei Bostan** - _Initial work_ - [bandrei](https://gitlab.com/bandrei)
+- **Andrei Bostan** - _Initial work_ - [bandrei](https://github.com/bandreit)
 
 ## Acknowledgments
 
