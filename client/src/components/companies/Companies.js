@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Grid, Paper, Container, Box } from "@material-ui/core";
+import { Grid, Paper, Container } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 
 import "./Companies.css";
